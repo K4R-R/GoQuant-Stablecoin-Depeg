@@ -35,3 +35,7 @@ The application includes a command-line interface for interactive use, as well a
 
 Clone and bootstrap vcpkg:
 
+```bash
+git clone https://github.com/microsoft/vcpkg.git
+cd vcpkg
+```

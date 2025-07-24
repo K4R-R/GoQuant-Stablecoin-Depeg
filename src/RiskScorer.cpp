@@ -7,7 +7,7 @@ RiskLevel RiskScorer::calculate_risk(double price, int large_transfer_count) {
     double deviation = fabs(price - 1.0);
     RiskLevel level;
 
-    if (deviation <= 0.0001)
+    if (deviation <= 0.0005)
         level = LOW;
     else if (deviation <= 0.001)
         level = MEDIUM;
