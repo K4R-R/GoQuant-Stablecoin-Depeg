@@ -59,7 +59,7 @@ static bool fetch_url(const string& url, string& response, const vector<string>&
 map<string, PriceResult> PriceMonitor::fetch_prices() {
     map<string, PriceResult> result;
 
-    // -------- CoinGecko (Authenticated) --------
+    // CoinGecko
     string gecko_url = "https://api.coingecko.com/api/v3/simple/price?ids=";
     for (auto it = coin_id_map_gecko.begin(); it != coin_id_map_gecko.end(); ++it) {
         if (it != coin_id_map_gecko.begin()) gecko_url += ",";
@@ -83,7 +83,7 @@ map<string, PriceResult> PriceMonitor::fetch_prices() {
         cout << "[ERROR] CoinGecko fetch failed.\n";
     }
 
-    // -------- CoinCap (Authenticated) --------
+    // CoinCap
     string cap_url = "https://rest.coincap.io/v3/assets?ids=";
     for (auto it = coin_id_map_cap.begin(); it != coin_id_map_cap.end(); ++it) {
         if (it != coin_id_map_cap.begin()) cap_url += ",";
@@ -97,7 +97,6 @@ map<string, PriceResult> PriceMonitor::fetch_prices() {
     };
 
     if (fetch_url(cap_url, cap_response, cap_headers)) {
-        // cout << "Raw CoinCap response:\n" << cap_response << "\n";
         json data = json::parse(cap_response, nullptr, false);
         if (data.contains("data")) {
             for (auto& asset : data["data"]) {

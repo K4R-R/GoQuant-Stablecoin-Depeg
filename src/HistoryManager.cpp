@@ -33,7 +33,6 @@ void HistoryManager::load_from_file(const string& filename) {
     }
 }
 
-
 void HistoryManager::save_to_file(const string& filename) const {
     if (history.empty()) return;
     cout<<history.size()<<endl;
@@ -84,7 +83,7 @@ double HistoryManager::moving_average(const string& coin, size_t window) const {
     }
 
     if(count) return sum/count;
-    else return 0.0; // No data for this coin
+    else return 0.0; 
 }
 
 double HistoryManager::moving_stdev(const string& coin, size_t window) const {

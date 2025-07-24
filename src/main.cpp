@@ -19,10 +19,6 @@
 
 using namespace std;
 
-// Globals for REST/API
-// HistoryManager history_manager;
-// mutex history_mutex;
-
 const vector<string> ALL_COINS = {"USDT", "USDC", "DAI", "FRAX", "BUSD"};
 
 enum OutputOption {
@@ -144,10 +140,6 @@ int main() {
                     cout << "[RISK TREND ALERT] " << chosen_coin << ": HIGH risk for 3+ cycles." << endl;
             }
 
-            // Display risk level
-            // if (prices.count(chosen_coin)) {    
-            //     cout << "RISK: " << risk_to_str(risk) << "\n";
-            // }
             // Display Alert
             alert_manager.process_alert(chosen_coin , avg_price , risk);
 
@@ -167,6 +159,5 @@ int main() {
         }
     }
 
-    // api_thread.join();
     return 0;
 }
